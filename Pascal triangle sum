@@ -1,27 +1,17 @@
-# Function to calculate factorial
 def factorial(n):
     if n == 0 or n == 1:
         return 1
     else:
         return n * factorial(n - 1)
-
-# Function to calculate binomial coefficient C(n, k)
 def binomial_coefficient(n, k):
     return factorial(n) // (factorial(k) * factorial(n - k))
-
-# Main code
 num_rows = int(input("Enter the number of rows: "))
-
-# Print Pascal's Triangle
 for n in range(num_rows):
     for k in range(n + 1):
         coefficient = binomial_coefficient(n, k)
         print(coefficient, end=" ")
-    print()  # Move to the next line
-
+    print()  
 row_number = int(input("Enter the row number: "))
-
-# Calculate sum of elements in the specified row
 if 1 <= row_number <= num_rows:
     row_sum = sum(binomial_coefficient(row_number - 1, k) for k in range(row_number))
     print(f"Sum of elements in {row_number}th row: {row_sum}")
